@@ -30,7 +30,7 @@ app.use(cookieParser());
 // CORS configuration
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://congra.netlify.app"], // adjust as needed
+    origin: ["http://localhost:3000", "https://autometed.netlify.app","https://linkedinautomation-stmd.vercel.app"], // adjust as needed
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
