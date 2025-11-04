@@ -3,13 +3,14 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
-
 import cookieParser from "cookie-parser";
 // import helmet from "helmet";
 
 import pool from "./db.js";
 
-import authRouter from "./routs/auth/auth.rout.js";
+import authRouter from './routes/auth/auth.rout.js';
+import linkedinRoutes from "./routes/linkedin/linkedinRoutes.js";
+import titleGenerator from "./routes/postGenerater/postGenerator.js";
 // middleware
 //routs
 
@@ -48,7 +49,8 @@ app.get("/", (req, res) => {
 
 // Public
 app.use("/api/v1/auth", authRouter);
-
+app.use("/api/v1/linkedin", linkedinRoutes);
+app.use("/api/v1/postGenerator", titleGenerator);
 
 
 // ---------- Error & 404 Handling ----------

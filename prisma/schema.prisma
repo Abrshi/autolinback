@@ -26,6 +26,7 @@ model User {
   updatedAt    DateTime  @updatedAt
 
   sessions     Session[]
+  accounts     Account[]
 }
 
 model Session {
@@ -37,6 +38,25 @@ model Session {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+
+model Account {
+  id             String   @id @default(cuid())
+  provider       String   // e.g. "linkedin"
+  providerUserId String   @unique
+  accessToken    String
+  refreshToken   String?
+  expiresAt      DateTime?
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+
+
 enum Role {
   USER
   ADMIN
