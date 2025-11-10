@@ -110,3 +110,8 @@ export const postToLinkedIn = async (req, res) => {
     res.status(500).json({ message: "Failed to post to LinkedIn" });
   }
 };
+
+export const linkedinPoster = async (req, res) => {
+  const { postContent } = req.body.postContent;
+  const userId = req.user.id;
+}
