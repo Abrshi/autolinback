@@ -1,5 +1,6 @@
 import express from "express";
 import { linkedinRedirect, linkedinCallback, postToLinkedIn, rewritePost } from "../../controllers/linkedinController.js";
+import { generatePost } from "../../controllers/postGenerater/aiPostGenerator.js";
 
 const router = express.Router();
 
@@ -14,5 +15,9 @@ router.post("/rewcrite", rewritePost);
 
 // Step 3: post on behalf of user
 router.post("/linkedin/post", postToLinkedIn);
+
+
+// ai post generater
+router.post("/generatePost", generatePost);
 
 export default router;
